@@ -162,6 +162,7 @@
     <ClInclude Include="HashUtilities.h" />
     <ClInclude Include="MathUtilities.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="OpenGLDebug.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Polygon2D.h" />
     <ClInclude Include="Primitive.h" />
