@@ -1,16 +1,17 @@
 #pragma once
+#include <vector>
+#include "Primitive.h"
 #include "Vec2.h"
 
-class Polygon2D
+class Polygon2D : Primitive
 {
 protected:
-	Vec2 center;
 
 public:
 	Polygon2D(Vec2 center);
 	
-	Vec2 GetCenter() const;
-	void SetCenter(const Vec2 position);
+	void SetPosition(const Vec2 position) override;
+	void Draw() const override;
 	
 };
 

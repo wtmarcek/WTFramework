@@ -145,6 +145,7 @@
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Polygon2D.cpp" />
+    <ClCompile Include="Primitive.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="RectCollider.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Polygon2D.h" />
+    <ClInclude Include="Primitive.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RectCollider.h" />
     <ClInclude Include="src\Shaders\ShaderUtilities.h" />

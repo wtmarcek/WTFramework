@@ -15,9 +15,9 @@ public:
 	//std::vector<Collider2D*> FindCollisions(std::vector<Collider2D> collider) const override;
 	bool IsColliding(RectCollider& other);
 	Rectangle& GetRect();
+	void SetCenter(const Vec2 position) override;
 	//std::vector<Vec2> GetVertices() const;
 	//Vec2 GetCenter() const;
-	//void SetCenter(const Vec2 position);
 	//void SetSize(const int width, const int height);
 };
 

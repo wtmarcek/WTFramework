@@ -11,6 +11,10 @@ Rectangle & RectCollider::GetRect()
 {
 	return rect;
 }
+void RectCollider::SetCenter(const Vec2 position)
+{
+	//TODO : IMPLEMENT
+}
 //
 //std::vector<Vec2> RectCollider::GetVertices() const
 //{

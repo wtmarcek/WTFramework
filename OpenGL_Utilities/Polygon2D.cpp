@@ -1,17 +1,18 @@
+#include "Primitive.h"
 #include "Polygon2D.h"
 
 
-Polygon2D::Polygon2D(const Vec2 center)
+Polygon2D::Polygon2D(const Vec2 position) : Primitive(position)
+{}
+
+void Polygon2D::SetPosition(const Vec2 position)
 {
-	SetCenter(center);
+	//TODO : IMPLEMENT
 }
 
-Vec2 Polygon2D::GetCenter() const
-{	
-	return center;
+void Polygon2D::Draw() const
+{
+	//TODO : IMPLEMENT
 }
 
-void Polygon2D::SetCenter(const Vec2 position)
-{
-	center = position;
-}
+

@@ -1,10 +1,15 @@
 #pragma once
-#include "Polygon2D.h"
-class Triangle :
-	public Polygon2D
+#include "Primitive.h"
+
+class Triangle : public Primitive
 {
+	
+
 public:
-	Triangle();
-	~Triangle();
+	Triangle(Vec2 position, Vec2 vertices[3]);
+
+	void Draw() const override;
+
+	void SetPosition(const Vec2 position) override;
 };
 
