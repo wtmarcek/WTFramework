@@ -18,34 +18,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Source.cpp">
+    <ClCompile Include="Triangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Circle.cpp">
+    <ClCompile Include="Circle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CircleCollider.cpp">
+    <ClCompile Include="CircleCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Collider2D.cpp">
+    <ClCompile Include="Collider2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Grid.cpp">
+    <ClCompile Include="Grid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Node.cpp">
+    <ClCompile Include="Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Physics.cpp">
+    <ClCompile Include="Physics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Polygon2D.cpp">
+    <ClCompile Include="Polygon2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rectangle.cpp">
+    <ClCompile Include="Rectangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\RectCollider.cpp">
+    <ClCompile Include="RectCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -58,40 +61,43 @@
     <ClInclude Include="src\Shaders\ShaderUtilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Circle.h">
+    <ClInclude Include="Triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\CircleCollider.h">
+    <ClInclude Include="Circle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Collider2D.h">
+    <ClInclude Include="CircleCollider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Grid.h">
+    <ClInclude Include="Collider2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\HashUtilities.h">
+    <ClInclude Include="Grid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\MathUtilities.h">
+    <ClInclude Include="HashUtilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Node.h">
+    <ClInclude Include="MathUtilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Physics.h">
+    <ClInclude Include="Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Polygon2D.h">
+    <ClInclude Include="Physics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Rectangle.h">
+    <ClInclude Include="Polygon2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\RectCollider.h">
+    <ClInclude Include="Rectangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Vec2.h">
+    <ClInclude Include="RectCollider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
