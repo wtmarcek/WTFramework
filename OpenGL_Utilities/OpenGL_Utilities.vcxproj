@@ -138,14 +138,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\ShaderUtilities.cpp" />
-    <ClCompile Include="src\Source.cpp" />
+    <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="CircleCollider.cpp" />
+    <ClCompile Include="Collider2D.cpp" />
+    <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="Polygon2D.cpp" />
+    <ClCompile Include="Primitive.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="RectCollider.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shaders\Basic.shader" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ShaderUtilities.h" />
+    <ClInclude Include="Circle.h" />
+    <ClInclude Include="CircleCollider.h" />
+    <ClInclude Include="Collider2D.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="HashUtilities.h" />
+    <ClInclude Include="MathUtilities.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="OpenGLDebug.h" />
+    <ClInclude Include="Physics.h" />
+    <ClInclude Include="Polygon2D.h" />
+    <ClInclude Include="Primitive.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="RectCollider.h" />
+    <ClInclude Include="src\Shaders\ShaderUtilities.h" />
+    <ClInclude Include="Vec2.h" />
+    <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

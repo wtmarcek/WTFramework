@@ -1,7 +1,8 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "ShaderUtilities.h"
-
+#include "Triangle.h"
+#include "Vec2.h"
 
 int main(void)
 {
@@ -13,7 +14,7 @@ int main(void)
 
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(640, 480, "Kupa", NULL, NULL);
+	window = glfwCreateWindow(640, 480, "Mea Kupa", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -28,19 +29,13 @@ int main(void)
 	}
 	std::cout << glGetString(GL_VERSION) << std::endl;
 
-	float tris[6] =
-	{
-		-0.5f, -0.5f,
-		 0.0f,  0.5f,
-		 0.5f, -0.5f
-	};
-	unsigned int buffer;
-	glGenBuffers(1, &buffer);
-	glBindBuffer(GL_ARRAY_BUFFER, buffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6, tris, GL_STATIC_DRAW);
+	Vec2 vers[3] = { Vec2(-1.0f, -1.0f), Vec2(0.0f, -1.0f), Vec2(0.0f, 0.0f) };
+	Triangle tris({ 1,1 }, vers);
+	tris.Draw();
 
-	glEnableVertexAttribArray (0);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
+	Vec2 vers1[3] = { Vec2(-0.5f, 1.0f), Vec2(0.0f, -1.0f), Vec2(0.0f, 0.0f) };
+	Triangle tris1({ 1,1 }, vers1);
+	tris1.Draw();
 
 	ShaderProgramSource source = ParseShader("src/Shaders/Basic.shader");
 	unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
@@ -51,8 +46,9 @@ int main(void)
 	{
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT);
-
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+				
+		//glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
