@@ -70,7 +70,26 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Shaders;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Renderer;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Physics;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Pathfinding;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\MathUtilities;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Geometry;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Shaders;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Renderer;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Physics;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Pathfinding;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\MathUtilities;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Geometry;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Shaders;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Renderer;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Physics;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Pathfinding;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\MathUtilities;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Geometry;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\intermediates\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Shaders;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Renderer;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Physics;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Pathfinding;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\MathUtilities;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source\Geometry;G:\Pojekty\OpenGL\WTFramework\OpenGL_Utilities\Source;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -138,39 +157,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Circle.cpp" />
-    <ClCompile Include="CircleCollider.cpp" />
-    <ClCompile Include="Collider2D.cpp" />
-    <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="Node.cpp" />
-    <ClCompile Include="Physics.cpp" />
-    <ClCompile Include="Polygon2D.cpp" />
-    <ClCompile Include="Primitive.cpp" />
-    <ClCompile Include="Rectangle.cpp" />
-    <ClCompile Include="RectCollider.cpp" />
-    <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="Source\Geometry\Circle.cpp" />
+    <ClCompile Include="Source\Physics\CircleCollider.cpp" />
+    <ClCompile Include="Source\Physics\Collider2D.cpp" />
+    <ClCompile Include="Source\Pathfinding\Grid.cpp" />
+    <ClCompile Include="Source\Pathfinding\Node.cpp" />
+    <ClCompile Include="Source\Physics\Physics.cpp" />
+    <ClCompile Include="Source\Geometry\Polygon2D.cpp" />
+    <ClCompile Include="Source\Geometry\Primitive.cpp" />
+    <ClCompile Include="Source\Geometry\Rectangle.cpp" />
+    <ClCompile Include="Source\Physics\RectCollider.cpp" />
+    <ClCompile Include="Source\Source.cpp" />
+    <ClCompile Include="Source\Geometry\Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\Shaders\Basic.shader" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Circle.h" />
-    <ClInclude Include="CircleCollider.h" />
-    <ClInclude Include="Collider2D.h" />
-    <ClInclude Include="Grid.h" />
-    <ClInclude Include="HashUtilities.h" />
-    <ClInclude Include="MathUtilities.h" />
-    <ClInclude Include="Node.h" />
-    <ClInclude Include="OpenGLDebug.h" />
-    <ClInclude Include="Physics.h" />
-    <ClInclude Include="Polygon2D.h" />
-    <ClInclude Include="Primitive.h" />
-    <ClInclude Include="Rectangle.h" />
-    <ClInclude Include="RectCollider.h" />
+    <ClInclude Include="Source\Geometry\Circle.h" />
+    <ClInclude Include="Source\Physics\CircleCollider.h" />
+    <ClInclude Include="Source\Physics\Collider2D.h" />
+    <ClInclude Include="Source\Pathfinding\Grid.h" />
+    <ClInclude Include="Source\MathUtilities\HashUtilities.h" />
+    <ClInclude Include="Source\MathUtilities\MathUtilities.h" />
+    <ClInclude Include="Source\Pathfinding\Node.h" />
+    <ClInclude Include="Source\Renderer\OpenGLDebug.h" />
+    <ClInclude Include="Source\Physics\Physics.h" />
+    <ClInclude Include="Source\Geometry\Polygon2D.h" />
+    <ClInclude Include="Source\Geometry\Primitive.h" />
+    <ClInclude Include="Source\Geometry\Rectangle.h" />
+    <ClInclude Include="Source\Physics\RectCollider.h" />
     <ClInclude Include="src\Shaders\ShaderUtilities.h" />
-    <ClInclude Include="Vec2.h" />
-    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Source\MathUtilities\Vec2.h" />
+    <ClInclude Include="Source\Geometry\Triangle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Shaders\BasicShader.shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

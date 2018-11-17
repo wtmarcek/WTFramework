@@ -1,6 +1,7 @@
 #include "Triangle.h"
 
 
+
 Triangle::Triangle(Vec2 position, Vec2 vertices[3]) : Primitive(position)
 {
 	vertexPos.reserve(6);

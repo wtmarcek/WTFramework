@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenGL_Utilities", "OpenGL_Utilities\OpenGL_Utilities.vcxproj", "{89D80B33-396C-401F-91BA-922F68B75CFA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WTFramework", "OpenGL_Utilities\OpenGL_Utilities.vcxproj", "{89D80B33-396C-401F-91BA-922F68B75CFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
