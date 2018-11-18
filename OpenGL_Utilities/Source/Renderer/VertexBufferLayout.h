@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include "OpenGLDebug.h"
-#include "Renderer.h"
 #include "GL/glew.h"
 
 

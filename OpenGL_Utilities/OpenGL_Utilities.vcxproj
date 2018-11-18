@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Shaders\Shader.cpp" />
     <ClCompile Include="Source\deb.cpp" />
     <ClCompile Include="Source\Geometry\Circle.cpp" />
     <ClCompile Include="Source\Physics\CircleCollider.cpp" />
@@ -175,8 +176,11 @@
     <ClCompile Include="Source\Geometry\Triangle.cpp" />
     <ClCompile Include="Source\Renderer\VertexBuffer.cpp" />
     <ClCompile Include="Source\Renderer\VertexArray.cpp" />
+    <ClCompile Include="Source\Vendor\stb_image\stb_image.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Shaders\Shader.h" />
     <ClInclude Include="Source\deb.h" />
     <ClInclude Include="Source\Geometry\Circle.h" />
     <ClInclude Include="Source\Physics\CircleCollider.h" />
@@ -193,13 +197,14 @@
     <ClInclude Include="Source\Geometry\Rectangle.h" />
     <ClInclude Include="Source\Physics\RectCollider.h" />
     <ClInclude Include="Source\Renderer\Renderer.h" />
-    <ClInclude Include="Source\Shaders\ShaderUtilities.h" />
+    <ClInclude Include="Source\Vendor\stb_image\stb_image.h" />
     <ClInclude Include="src\Shaders\ShaderUtilities.h" />
     <ClInclude Include="Source\MathUtilities\Vec2.h" />
     <ClInclude Include="Source\Geometry\Triangle.h" />
     <ClInclude Include="Source\Renderer\VertexBuffer.h" />
     <ClInclude Include="Source\Renderer\VertexArray.h" />
     <ClInclude Include="Source\Renderer\VertexBufferLayout.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\BasicShader.shader" />
