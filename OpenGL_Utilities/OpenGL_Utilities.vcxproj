@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\deb.cpp" />
     <ClCompile Include="Source\Geometry\Circle.cpp" />
     <ClCompile Include="Source\Physics\CircleCollider.cpp" />
     <ClCompile Include="Source\Physics\Collider2D.cpp" />
@@ -167,10 +168,16 @@
     <ClCompile Include="Source\Geometry\Primitive.cpp" />
     <ClCompile Include="Source\Geometry\Rectangle.cpp" />
     <ClCompile Include="Source\Physics\RectCollider.cpp" />
+    <ClCompile Include="Source\Renderer\IndexBuffer.cpp" />
+    <ClCompile Include="Source\Renderer\OpenGLDebug.cpp" />
+    <ClCompile Include="Source\Renderer\Renderer.cpp" />
     <ClCompile Include="Source\Source.cpp" />
     <ClCompile Include="Source\Geometry\Triangle.cpp" />
+    <ClCompile Include="Source\Renderer\VertexBuffer.cpp" />
+    <ClCompile Include="Source\Renderer\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\deb.h" />
     <ClInclude Include="Source\Geometry\Circle.h" />
     <ClInclude Include="Source\Physics\CircleCollider.h" />
     <ClInclude Include="Source\Physics\Collider2D.h" />
@@ -178,15 +185,21 @@
     <ClInclude Include="Source\MathUtilities\HashUtilities.h" />
     <ClInclude Include="Source\MathUtilities\MathUtilities.h" />
     <ClInclude Include="Source\Pathfinding\Node.h" />
+    <ClInclude Include="Source\Renderer\IndexBuffer.h" />
     <ClInclude Include="Source\Renderer\OpenGLDebug.h" />
     <ClInclude Include="Source\Physics\Physics.h" />
     <ClInclude Include="Source\Geometry\Polygon2D.h" />
     <ClInclude Include="Source\Geometry\Primitive.h" />
     <ClInclude Include="Source\Geometry\Rectangle.h" />
     <ClInclude Include="Source\Physics\RectCollider.h" />
+    <ClInclude Include="Source\Renderer\Renderer.h" />
+    <ClInclude Include="Source\Shaders\ShaderUtilities.h" />
     <ClInclude Include="src\Shaders\ShaderUtilities.h" />
     <ClInclude Include="Source\MathUtilities\Vec2.h" />
     <ClInclude Include="Source\Geometry\Triangle.h" />
+    <ClInclude Include="Source\Renderer\VertexBuffer.h" />
+    <ClInclude Include="Source\Renderer\VertexArray.h" />
+    <ClInclude Include="Source\Renderer\VertexBufferLayout.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\BasicShader.shader" />
