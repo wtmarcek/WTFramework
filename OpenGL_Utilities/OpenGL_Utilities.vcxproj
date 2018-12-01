@@ -177,7 +177,7 @@
     <ClCompile Include="Source\Renderer\VertexBuffer.cpp" />
     <ClCompile Include="Source\Renderer\VertexArray.cpp" />
     <ClCompile Include="Source\Vendor\stb_image\stb_image.cpp" />
-    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Source\Textures\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Shaders\Shader.h" />
@@ -204,10 +204,13 @@
     <ClInclude Include="Source\Renderer\VertexBuffer.h" />
     <ClInclude Include="Source\Renderer\VertexArray.h" />
     <ClInclude Include="Source\Renderer\VertexBufferLayout.h" />
-    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Source\Textures\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\BasicShader.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Source\Graphics\Textures\FallusTemple.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
