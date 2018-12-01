@@ -166,5 +166,11 @@
     <Image Include="Source\Graphics\Textures\FallusTemple.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Source\Graphics\Textures\alpha.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Source\Graphics\Textures\Linux.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

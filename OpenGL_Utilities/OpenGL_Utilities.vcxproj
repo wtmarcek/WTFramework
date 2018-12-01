@@ -210,7 +210,9 @@
     <None Include="Source\Shaders\BasicShader.shader" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Source\Graphics\Textures\alpha.png" />
     <Image Include="Source\Graphics\Textures\FallusTemple.png" />
+    <Image Include="Source\Graphics\Textures\Linux.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

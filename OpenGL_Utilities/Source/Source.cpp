@@ -46,22 +46,25 @@ int main(void)
 	glfwSwapInterval(1);
 
 	{
-		float positions[] =
+		float vertices[] =
 		{
 			-0.5f, -0.5f, 0.0f, 0.0f,	//0
 			 0.5f, -0.5f, 1.0f, 0.0f,	//1
 			 0.5f,  0.5f, 1.0f, 1.0f,	//2
 			-0.5f,	0.5f, 0.0f, 1.0f 	//3
-		};
+		};		
 		unsigned int indices[] =
 		{
 			0,1,2,
 			2,3,0,
 		};
 		
+		GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+
 		VertexArray va;
-		VertexBuffer vb(positions, 4 * 4 * sizeof(float));
+		VertexBuffer vb(vertices, 4 * 4 * sizeof(float));
 		VertexBufferLayout layout;
+		layout.Push<float>(2);
 		layout.Push<float>(2);
 		va.AddBuffer(vb, layout);
 
@@ -69,12 +72,12 @@ int main(void)
 		unsigned int ibo;
 
 		std::string shaderName = "Source/Shaders/BasicShader.shader";
-		Shader shader(shaderName);
+		Shader shader(shaderName);		
 		shader.Bind();
 		shader.SetUniform4f("u_Color", 1.0f, 1.0f, 0, 1.0f);			
 
 		//TODO: nie wczytuje siê texa
-		Texture texture("Graphics/Textures/FallusTemple.png");
+		Texture texture("Source/Graphics/Textures/Linux.png");
 		texture.Bind();
 		shader.SetUniform1i("u_Texture", 0);
 
