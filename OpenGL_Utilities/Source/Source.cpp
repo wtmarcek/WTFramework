@@ -1,3 +1,5 @@
+#pragma once
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -13,10 +15,17 @@
 #include "Shaders/Shader.h"
 #include "Renderer/Renderer.h"
 #include "Textures/Texture.h"
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+#include "imgui/imgui.h"
+#include "imgui/imgui_impl_glfw_gl3.h"
 
 
 int main(void)
 {
+
+#pragma region GLFW initialization
+
 	GLFWwindow* window;
 	
 	/* Initialize the library */
@@ -28,7 +37,7 @@ int main(void)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(640, 480, "Mea Kupa", NULL, NULL);
+	window = glfwCreateWindow(960, 540, "Mea Kupa", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -45,14 +54,20 @@ int main(void)
 
 	glfwSwapInterval(1);
 
-	{
+#pragma endregion
+
+
+	{	
+#pragma region Application Start
+		
 		float vertices[] =
 		{
-			-0.5f, -0.5f, 0.0f, 0.0f,	//0
-			 0.5f, -0.5f, 1.0f, 0.0f,	//1
-			 0.5f,  0.5f, 1.0f, 1.0f,	//2
-			-0.5f,	0.5f, 0.0f, 1.0f 	//3
-		};		
+			-0.0f, -0.0f, 0.0f, 0.0f,		//0
+			100.0f, -0.0f, 1.0f, 0.0f,		//1
+			100.0f,  100.0f, 1.0f, 1.0f,	//2
+			-0.0f, 100.0f, 0.0f, 1.0f 		//3
+		};
+
 		unsigned int indices[] =
 		{
 			0,1,2,
@@ -75,9 +90,8 @@ int main(void)
 		std::string shaderName = "Source/Shaders/BasicShader.shader";
 		Shader shader(shaderName);		
 		shader.Bind();
-		shader.SetUniform4f("u_Color", 1.0f, 1.0f, 0, 1.0f);			
+		shader.SetUniform4f("u_Color", 1.0f, 1.0f, 0, 1.0f);	
 
-		//TODO: nie wczytuje siê texa
 		Texture texture("Source/Graphics/Textures/Linux.png");
 		texture.Bind();
 		shader.SetUniform1i("u_Texture", 0);
@@ -89,12 +103,65 @@ int main(void)
 
 		Renderer renderer;
 
+#pragma endregion
+		
+#pragma region ImGUI Initialization
+
+		ImGui::CreateContext();
+		ImGui_ImplGlfwGL3_Init(window, true);
+		ImGui::StyleColorsDark();
+
+		bool show_demo_window = true;
+		bool show_another_window = false;
+		ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+
+#pragma endregion
+
+		glm::vec3 translation = glm::vec3(0.0f, 0.0f, 0.0f);
+#pragma Application Main Loop
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(window))
 		{
 			/* Render here */
 			renderer.Clear();
 			
+			ImGui_ImplGlfwGL3_NewFrame();
+
+
+			ImGui::SliderFloat3("Translation", &translation.x, 0.0f, 960.0f);
+			
+			glm::mat4 proj = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f);
+			glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0, 0));
+			glm::mat4 model = glm::translate(glm::mat4(1.0f), translation);
+
+			float rad = glm::radians(35.0f);
+			model = glm::rotate(model, rad, glm::vec3(0.0f, 0.0f, 1.0f));
+
+			glm::mat4 mvp = proj * view * model;
+
+			shader.Bind();
+			shader.SetUniformMat4f("u_MVP", mvp);
+
+			
+			//static float f = 0.0f;
+			//static int counter = 0;
+			//ImGui::Text("Hello, world!");                           // Display some text (you can use a format string too)
+			//ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f    
+			//ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+			//
+			//ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our windows open/close state
+			//ImGui::Checkbox("Another Window", &show_another_window);
+			//
+			//if (ImGui::Button("Button"))                            // Buttons return true when clicked (NB: most widgets return true when edited/activated)
+			//	counter++;
+			//ImGui::SameLine();
+			//ImGui::Text("counter = %d", counter);
+			//
+			//ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+
+			ImGui::Render();
+			ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
+
 			vb.Bind();
 			renderer.Draw(va, ib, shader);
 
@@ -105,7 +172,10 @@ int main(void)
 			glfwPollEvents();
 		}
 	}
+#pragma endregion
 
+	ImGui_ImplGlfwGL3_Shutdown();
+	ImGui::DestroyContext();
 	glfwTerminate();
 	return 0;
 }
