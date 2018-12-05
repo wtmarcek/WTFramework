@@ -1,11 +1,12 @@
 #pragma once
 
+#pragma region Includes
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <string>
 #include <cassert>
-#include <sstream>"
+#include <sstream>
 #include "Triangle.h"
 #include "Vec2.h"
 #include "OpenGLDebug.h"
@@ -20,11 +21,14 @@
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw_gl3.h"
 
+#include "Tests/TestClearColor.h"
+#pragma endregion
+
 
 int main(void)
 {
 
-#pragma region GLFW initialization
+	#pragma region GLFW initialization
 
 	GLFWwindow* window;
 	
@@ -54,18 +58,18 @@ int main(void)
 
 	glfwSwapInterval(1);
 
-#pragma endregion
+	#pragma endregion
 
 
 	{	
-#pragma region Application Start
+		#pragma region Start
 		
 		float vertices[] =
 		{
-			-0.0f, -0.0f, 0.0f, 0.0f,		//0
-			100.0f, -0.0f, 1.0f, 0.0f,		//1
-			100.0f,  100.0f, 1.0f, 1.0f,	//2
-			-0.0f, 100.0f, 0.0f, 1.0f 		//3
+			-50.0f, -50.0f, 0.0f, 0.0f,		//0
+			 50.0f, -50.0f, 1.0f, 0.0f,		//1
+			 50.0f,  50.0f, 1.0f, 1.0f,		//2
+			-50.0f,  50.0f, 0.0f, 1.0f 		//3
 		};
 
 		unsigned int indices[] =
@@ -103,9 +107,9 @@ int main(void)
 
 		Renderer renderer;
 
-#pragma endregion
+		#pragma endregion
 		
-#pragma region ImGUI Initialization
+		#pragma region ImGUI Initialization
 
 		ImGui::CreateContext();
 		ImGui_ImplGlfwGL3_Init(window, true);
@@ -115,34 +119,40 @@ int main(void)
 		bool show_another_window = false;
 		ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-#pragma endregion
+		#pragma endregion
 
-		glm::vec3 translation = glm::vec3(0.0f, 0.0f, 0.0f);
-#pragma Application Main Loop
+		Test::TestClearColor test;
+
+		#pragma region Main Loop
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(window))
 		{
-			/* Render here */
 			renderer.Clear();
 			
+			test.OnUpdate(0.0f);
+			test.OnRender();
+
 			ImGui_ImplGlfwGL3_NewFrame();
+			test.OnImGuiRender();
+			ImGui::Render();
 
 
-			ImGui::SliderFloat3("Translation", &translation.x, 0.0f, 960.0f);
-			
-			glm::mat4 proj = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f);
-			glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0, 0));
-			glm::mat4 model = glm::translate(glm::mat4(1.0f), translation);
+			//glm::vec3 translation = glm::vec3(0.0f, 0.0f, 0.0f);
+			//ImGui::SliderFloat3("Translation", &translation.x, 0.0f, 960.0f);
+			//
+			//glm::mat4 proj = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f);
+			//glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+			//glm::mat4 model = glm::translate(glm::mat4(1.0f), translation);
+			//
+			//float rad = glm::radians(35.0f);
+			////model = glm::rotate(model, rad, glm::vec3(0.0f, 0.0f, 1.0f));
+			//
+			//glm::mat4 mvp = proj * view * model;
+			//
+			//shader.Bind();
+			//shader.SetUniformMat4f("u_MVP", mvp);
 
-			float rad = glm::radians(35.0f);
-			model = glm::rotate(model, rad, glm::vec3(0.0f, 0.0f, 1.0f));
-
-			glm::mat4 mvp = proj * view * model;
-
-			shader.Bind();
-			shader.SetUniformMat4f("u_MVP", mvp);
-
-			
+			#pragma region ImGUI Example
 			//static float f = 0.0f;
 			//static int counter = 0;
 			//ImGui::Text("Hello, world!");                           // Display some text (you can use a format string too)
@@ -158,6 +168,7 @@ int main(void)
 			//ImGui::Text("counter = %d", counter);
 			//
 			//ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+			#pragma endregion
 
 			ImGui::Render();
 			ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
@@ -165,14 +176,11 @@ int main(void)
 			vb.Bind();
 			renderer.Draw(va, ib, shader);
 
-			/* Swap front and back buffers */
 			glfwSwapBuffers(window);
-
-			/* Poll for and process events */
 			glfwPollEvents();
 		}
+		#pragma endregion
 	}
-#pragma endregion
 
 	ImGui_ImplGlfwGL3_Shutdown();
 	ImGui::DestroyContext();
