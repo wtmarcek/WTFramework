@@ -176,6 +176,8 @@
     <ClCompile Include="Source\Geometry\Triangle.cpp" />
     <ClCompile Include="Source\Renderer\VertexBuffer.cpp" />
     <ClCompile Include="Source\Renderer\VertexArray.cpp" />
+    <ClCompile Include="Source\Tests\Test.cpp" />
+    <ClCompile Include="Source\Tests\TestTexture2D.cpp" />
     <ClCompile Include="Source\Vendor\glm\detail\glm.cpp" />
     <ClCompile Include="Source\Vendor\imgui\imgui.cpp" />
     <ClCompile Include="Source\Vendor\imgui\imgui_demo.cpp" />
@@ -203,6 +205,7 @@
     <ClInclude Include="Source\Geometry\Rectangle.h" />
     <ClInclude Include="Source\Physics\RectCollider.h" />
     <ClInclude Include="Source\Renderer\Renderer.h" />
+    <ClInclude Include="Source\Tests\TestTexture2D.h" />
     <ClInclude Include="Source\Vendor\glm\common.hpp" />
     <ClInclude Include="Source\Vendor\glm\detail\compute_common.hpp" />
     <ClInclude Include="Source\Vendor\glm\detail\compute_vector_relational.hpp" />

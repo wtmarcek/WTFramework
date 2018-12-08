@@ -99,6 +99,12 @@
     <ClCompile Include="Source\Tests\TestClearColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Tests\Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tests\TestTexture2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Shaders\ShaderUtilities.h">
@@ -921,6 +927,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Tests\TestClearColor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tests\TestTexture2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

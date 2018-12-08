@@ -31,6 +31,6 @@ void main()
 	color = texColor * u_Color;
 	
 	//DEBUG
-	color = vec4(1.0);
+	//color = vec4(1.0);
 	//
 };
