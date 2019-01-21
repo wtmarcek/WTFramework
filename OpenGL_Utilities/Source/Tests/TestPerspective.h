@@ -1,10 +1,7 @@
 #pragma once
-
-#include "Test.h"
-
 #include <memory>
 
-#include "VertexBuffer.h"
+#include "Tests/Test.h"
 #include "IndexBuffer.h"
 #include "Shader.h"
 #include "VertexArray.h"
@@ -13,11 +10,11 @@
 
 namespace Test
 {
-	class TestTexture2D : public Test
+	class TestPerspective : public Test
 	{
 	public:
-		TestTexture2D();
-		~TestTexture2D();
+		TestPerspective();
+		~TestPerspective();
 
 		void OnUpdate(float deltaTime) override;
 		void OnRender() override;
@@ -33,7 +30,9 @@ namespace Test
 		glm::mat4 m_Proj;
 		glm::mat4 m_View;
 
-		glm::vec3 m_TranslationA;
-		glm::vec3 m_TranslationB;
+		glm::vec3 m_Translation;
+		float m_RotationAngle;
+		glm::vec3 m_RotationAxis;
+		glm::vec3 m_Scale;		
 	};
 }

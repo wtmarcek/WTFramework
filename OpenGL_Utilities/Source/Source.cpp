@@ -21,6 +21,7 @@
 #include "Tests/Test.h"
 #include "Tests/TestClearColor.h"
 #include "Tests/TestTexture2D.h"
+#include "Tests/TestPerspective.h"
 
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
@@ -47,7 +48,7 @@ int main(void)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(960, 540, "Mea Kupa", NULL, NULL);
+	window = glfwCreateWindow(800, 600, "Mea Kupa", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -86,6 +87,7 @@ int main(void)
 
 		testMenu->RegisterTest<Test::TestClearColor>("Clear Color");
 		testMenu->RegisterTest<Test::TestTexture2D>("Texture 2D");
+		testMenu->RegisterTest<Test::TestPerspective>("Perspective");
 		#pragma endregion
 
 

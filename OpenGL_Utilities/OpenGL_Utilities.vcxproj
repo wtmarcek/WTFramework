@@ -186,6 +186,7 @@
     <ClCompile Include="Source\Vendor\stb_image\stb_image.cpp" />
     <ClCompile Include="Source\Textures\Texture.cpp" />
     <ClCompile Include="Source\Tests\TestClearColor.cpp" />
+    <ClCompile Include="Source\Tests\TestPerspective.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Shaders\Shader.h" />
@@ -463,6 +464,7 @@
     <ClInclude Include="Source\Textures\Texture.h" />
     <ClInclude Include="Source\Tests\Test.h" />
     <ClInclude Include="Source\Tests\TestClearColor.h" />
+    <ClInclude Include="Source\Tests\TestPerspective.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\BasicShader.shader" />
