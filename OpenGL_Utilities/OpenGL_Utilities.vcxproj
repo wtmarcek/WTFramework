@@ -111,7 +111,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>Source/Vendor;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;Source/Vendor;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -146,7 +146,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>Source/Vendor;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;Source/Vendor;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -157,6 +157,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Game\GameWindow.cpp" />
+    <ClCompile Include="Source\Renderer\SpriteRenderer.cpp" />
     <ClCompile Include="Source\Shaders\Shader.cpp" />
     <ClCompile Include="Source\deb.cpp" />
     <ClCompile Include="Source\Geometry\Circle.cpp" />
@@ -189,6 +191,8 @@
     <ClCompile Include="Source\Tests\TestPerspective.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Game\GameWindow.h" />
+    <ClInclude Include="Source\Renderer\SpriteRenderer.h" />
     <ClInclude Include="Source\Shaders\Shader.h" />
     <ClInclude Include="Source\deb.h" />
     <ClInclude Include="Source\Geometry\Circle.h" />
@@ -455,6 +459,7 @@
     <ClInclude Include="Source\Vendor\imgui\stb_textedit.h" />
     <ClInclude Include="Source\Vendor\imgui\stb_truetype.h" />
     <ClInclude Include="Source\Vendor\stb_image\stb_image.h" />
+    <ClInclude Include="Source\wtfpch.h" />
     <ClInclude Include="src\Shaders\ShaderUtilities.h" />
     <ClInclude Include="Source\MathUtilities\Vec2.h" />
     <ClInclude Include="Source\Geometry\Triangle.h" />

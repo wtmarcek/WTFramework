@@ -22,6 +22,7 @@
 #include "Tests/TestClearColor.h"
 #include "Tests/TestTexture2D.h"
 #include "Tests/TestPerspective.h"
+#include "Game/GameWindow.h"
 
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
@@ -88,6 +89,7 @@ int main(void)
 		testMenu->RegisterTest<Test::TestClearColor>("Clear Color");
 		testMenu->RegisterTest<Test::TestTexture2D>("Texture 2D");
 		testMenu->RegisterTest<Test::TestPerspective>("Perspective");
+		//testMenu->RegisterTest<GameWindow>("Game");
 		#pragma endregion
 
 

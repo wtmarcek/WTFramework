@@ -6,6 +6,6 @@
 class Renderer
 {
 public:
-	void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const;
-	void Clear() const;
+	virtual void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const;
+	virtual void Clear() const;
 };

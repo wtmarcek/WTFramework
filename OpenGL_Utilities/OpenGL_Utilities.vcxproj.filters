@@ -108,6 +108,12 @@
     <ClCompile Include="Source\Tests\TestPerspective.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\GameWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer\SpriteRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Shaders\ShaderUtilities.h">
@@ -936,6 +942,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Tests\TestPerspective.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\GameWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\SpriteRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\wtfpch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
