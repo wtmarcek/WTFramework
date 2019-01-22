@@ -1,21 +1,18 @@
+#include "wtfpch.h"
+
 #include "SpriteRenderer.h"
 
 
-
-SpriteRenderer::SpriteRenderer(Texture & texture, Shader & shader)
+SpriteRenderer::SpriteRenderer(const Texture & texture, Shader & shader)
 	: m_Texture(texture), m_Shader(shader)
 {
-	float vertices[] = 
+	float vertices[] =
 	{
-		// Pos			  // Tex
-		0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
-		1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-
-		0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
-		1.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-		1.0f, 0.0f, 0.0f, 1.0f, 0.0f
-	};	
+		-50.0f, -50.0f, 0.0f, 0.0f, 0.0f,		//0
+		 50.0f, -50.0f, 0.0f, 1.0f, 0.0f,		//1
+		 50.0f,  50.0f, 0.0f, 1.0f, 1.0f,		//2
+		-50.0f,  50.0f, 0.0f, 0.0f, 1.0f 		//3
+	};
 
 	unsigned int indices[] =
 	{
@@ -35,13 +32,14 @@ SpriteRenderer::SpriteRenderer(Texture & texture, Shader & shader)
 	m_VAO->AddBuffer(*m_VertexBuffer, layout);
 
 	m_Shader.Bind();
-	m_Shader.SetUniform4f("u_Color", 1.0f, 1.0f, 1.0f, 1.0f);
+	m_Shader.SetUniform4f("u_Color", 1.0f, 1.0f, 0.0f, 1.0f);
+	m_Shader.SetUniform1i("u_Texture", 0);
+
 
 	m_Proj = std::make_unique<glm::mat4>(glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -0.0f, 100.0f));
 	m_View = std::make_unique<glm::mat4>(glm::mat4(1.0f));
-	m_Model = std::make_unique<glm::mat4>(glm::mat4(1.0f));
-		 
-
+	glm::vec3 modelPos(100.0f, 100.0f, 0.0f);
+	m_Model = std::make_unique<glm::mat4>(glm::translate(glm::mat4(1.0f), modelPos));
 }
 
 SpriteRenderer::~SpriteRenderer()
@@ -54,7 +52,6 @@ void SpriteRenderer::Draw()
 
 	m_Texture.Bind();
 	m_Shader.Bind();
-	m_Shader.SetUniform1i("u_Texture", 0);
 	m_Shader.SetUniformMat4f("u_MVP", mvp);
 	
 	Renderer::Draw(*m_VAO, *m_IndexBuffer, m_Shader);

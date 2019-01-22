@@ -193,6 +193,8 @@
   <ItemGroup>
     <ClInclude Include="Source\Game\GameWindow.h" />
     <ClInclude Include="Source\Renderer\SpriteRenderer.h" />
+    <ClInclude Include="Source\SceneObjects\SceneObject.h" />
+    <ClInclude Include="Source\SceneObjects\Transform.h" />
     <ClInclude Include="Source\Shaders\Shader.h" />
     <ClInclude Include="Source\deb.h" />
     <ClInclude Include="Source\Geometry\Circle.h" />

@@ -1,10 +1,9 @@
 #pragma once
-#include "wtfpch.h"
 
 class SpriteRenderer : Renderer
 {
 public:
-	SpriteRenderer(Texture& texture, Shader& shader);
+	SpriteRenderer(const Texture& texture, Shader& shader);
 	~SpriteRenderer();
 	
 	void Draw();
@@ -19,6 +18,6 @@ private:
 	std::unique_ptr<glm::mat4> m_View;
 	std::unique_ptr<glm::mat4> m_Model;
 
-	Texture& m_Texture;
+	const Texture& m_Texture;
 	Shader& m_Shader;
 };

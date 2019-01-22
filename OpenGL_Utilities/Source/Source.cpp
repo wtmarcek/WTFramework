@@ -1,34 +1,15 @@
 #pragma once
 
 #pragma region Includes
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <iostream>
-#include <string>
-#include <cassert>
-#include <sstream>
+#include"wtfpch.h"
 
-#include "Triangle.h"
-#include "Vec2.h"
-#include "OpenGLDebug.h"
-#include "VertexBuffer.h"
-#include "IndexBuffer.h"
-#include "VertexArray.h"
-#include "Shaders/Shader.h"
-#include "Renderer/Renderer.h"
-#include "Textures/Texture.h"
-
-#include "Tests/Test.h"
 #include "Tests/TestClearColor.h"
 #include "Tests/TestTexture2D.h"
 #include "Tests/TestPerspective.h"
 #include "Game/GameWindow.h"
 
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
 
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_glfw_gl3.h"
+
 
 #pragma endregion
 
@@ -89,7 +70,7 @@ int main(void)
 		testMenu->RegisterTest<Test::TestClearColor>("Clear Color");
 		testMenu->RegisterTest<Test::TestTexture2D>("Texture 2D");
 		testMenu->RegisterTest<Test::TestPerspective>("Perspective");
-		//testMenu->RegisterTest<GameWindow>("Game");
+		testMenu->RegisterTest<GameWindow>("Game");
 		#pragma endregion
 
 
