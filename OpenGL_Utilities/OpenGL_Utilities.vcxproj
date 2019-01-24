@@ -196,7 +196,10 @@
     <ClCompile Include="Source\Tests\TestPerspective.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Animation\SpriteAnimator.h" />
+    <ClInclude Include="Source\Events\Event.h" />
     <ClInclude Include="Source\Geometry\Quad.h" />
+    <ClInclude Include="Source\Input\Input.h" />
     <ClInclude Include="Source\Renderer\Camera.h" />
     <ClInclude Include="Source\SceneObjects\SceneObject.h" />
     <ClInclude Include="Source\Game\GameWindow.h" />
