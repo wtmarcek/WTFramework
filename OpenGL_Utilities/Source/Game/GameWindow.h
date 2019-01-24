@@ -26,5 +26,5 @@ private:
 	unsigned int m_Height;
 	std::unique_ptr<Shader> m_Shader;
 	std::unique_ptr<Texture> m_Texture;
-	std::unique_ptr<SpriteRenderer> m_SpriteRenderer;
+	//std::unique_ptr<SpriteRenderer> m_SpriteRenderer;
 };

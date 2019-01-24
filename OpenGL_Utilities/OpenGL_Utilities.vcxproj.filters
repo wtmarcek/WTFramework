@@ -114,6 +114,21 @@
     <ClCompile Include="Source\Renderer\SpriteRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\SceneObjects\Transform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneObjects\SceneObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Geometry\Quad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Shaders\ShaderUtilities.h">
@@ -953,10 +968,19 @@
     <ClInclude Include="Source\wtfpch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\SceneObjects\Transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Source\SceneObjects\SceneObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\SceneObjects\Transform.h">
+    <ClInclude Include="Source\Renderer\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Geometry\Quad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

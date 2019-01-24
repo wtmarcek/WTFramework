@@ -157,8 +157,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Geometry\Quad.cpp" />
+    <ClCompile Include="Source\Renderer\Camera.cpp" />
+    <ClCompile Include="Source\SceneObjects\SceneObject.cpp" />
     <ClCompile Include="Source\Game\GameWindow.cpp" />
     <ClCompile Include="Source\Renderer\SpriteRenderer.cpp" />
+    <ClCompile Include="Source\SceneObjects\Transform.cpp" />
+    <ClCompile Include="Source\Scene\Scene.cpp" />
     <ClCompile Include="Source\Shaders\Shader.cpp" />
     <ClCompile Include="Source\deb.cpp" />
     <ClCompile Include="Source\Geometry\Circle.cpp" />
@@ -191,10 +196,13 @@
     <ClCompile Include="Source\Tests\TestPerspective.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Geometry\Quad.h" />
+    <ClInclude Include="Source\Renderer\Camera.h" />
+    <ClInclude Include="Source\SceneObjects\SceneObject.h" />
     <ClInclude Include="Source\Game\GameWindow.h" />
     <ClInclude Include="Source\Renderer\SpriteRenderer.h" />
-    <ClInclude Include="Source\SceneObjects\SceneObject.h" />
     <ClInclude Include="Source\SceneObjects\Transform.h" />
+    <ClInclude Include="Source\Scene\Scene.h" />
     <ClInclude Include="Source\Shaders\Shader.h" />
     <ClInclude Include="Source\deb.h" />
     <ClInclude Include="Source\Geometry\Circle.h" />

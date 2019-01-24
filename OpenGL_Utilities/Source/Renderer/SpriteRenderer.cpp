@@ -1,19 +1,19 @@
-#include "wtfpch.h"
-
+#pragma once
 #include "SpriteRenderer.h"
 
 
-SpriteRenderer::SpriteRenderer(const Texture & texture, Shader & shader)
-	: m_Texture(texture), m_Shader(shader)
+SpriteRenderer::SpriteRenderer(const Camera& camera, Texture& texture, Shader& shader, const Transform& transform)
+	: m_Texture(texture), m_Shader(shader), m_Camera(camera), m_Transform(transform)
 {
 	float vertices[] =
 	{
-		-50.0f, -50.0f, 0.0f, 0.0f, 0.0f,		//0
-		 50.0f, -50.0f, 0.0f, 1.0f, 0.0f,		//1
-		 50.0f,  50.0f, 0.0f, 1.0f, 1.0f,		//2
-		-50.0f,  50.0f, 0.0f, 0.0f, 1.0f 		//3
+		//Vertices				//UV
+		-0.5f, -0.5f, 0.0f,		0.0f, 0.0f,		//0
+		 0.5f, -0.5f, 0.0f,		1.0f, 0.0f,		//1
+		 0.5f,  0.5f, 0.0f,		1.0f, 1.0f,		//2
+		-0.5f,  0.5f, 0.0f,		0.0f, 1.0f 		//3
 	};
-
+	
 	unsigned int indices[] =
 	{
 		0,1,2,
@@ -35,11 +35,7 @@ SpriteRenderer::SpriteRenderer(const Texture & texture, Shader & shader)
 	m_Shader.SetUniform4f("u_Color", 1.0f, 1.0f, 0.0f, 1.0f);
 	m_Shader.SetUniform1i("u_Texture", 0);
 
-
-	m_Proj = std::make_unique<glm::mat4>(glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -0.0f, 100.0f));
-	m_View = std::make_unique<glm::mat4>(glm::mat4(1.0f));
-	glm::vec3 modelPos(100.0f, 100.0f, 0.0f);
-	m_Model = std::make_unique<glm::mat4>(glm::translate(glm::mat4(1.0f), modelPos));
+	//m_Model = std::make_unique<glm::mat4>(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
 }
 
 SpriteRenderer::~SpriteRenderer()
@@ -48,7 +44,7 @@ SpriteRenderer::~SpriteRenderer()
 
 void SpriteRenderer::Draw()
 {
-	glm::mat4 mvp = *m_Proj * *m_View * *m_Model;
+	glm::mat4 mvp = m_Camera.GetProjection() * m_Camera.GetView() * m_Transform.GetTransformationMatrix();
 
 	m_Texture.Bind();
 	m_Shader.Bind();
