@@ -1,9 +1,8 @@
 #pragma once
 #include "SceneObjects/Transform.h"
 #include "Renderer/SpriteRenderer.h"
-#include "Physics\BoxCollider.h"
 
-
+class BoxCollider;
 static unsigned int s_SceneObjectsCounter = 0;
 
 class SceneObject
@@ -14,7 +13,7 @@ public:
 
 	virtual void Update(float dt);
 
-	//void OnCollisionEnter(BoxCollider& collider);
+	void OnCollisionEnter(BoxCollider& collider);
 
 	Transform& GetTransform() const;
 	SpriteRenderer& GetRenderer() const;

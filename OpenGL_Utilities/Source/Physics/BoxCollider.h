@@ -1,32 +1,25 @@
 #pragma once
-#include "Geometry\Box.h"
-#include "SceneObjects\SceneObject.h"
-//#include "Physics.h"
+class SceneObject;
 
 
-enum ColliderLayer
+enum CollisionLayer
 {
 	Player,
 	PickUp,
-	Weapon
+	Damage
 };
 
 class BoxCollider
 {
 public:
-	BoxCollider(float width, float height, ColliderLayer layer, SceneObject* sceneObj);
+	BoxCollider(SceneObject& sceneObject, CollisionLayer layer);
 	~BoxCollider();
 
-	void OnUpdate();
+	void Update(float dt);
 
 	SceneObject& GetSceneObject() const;
-	ColliderLayer GetLayer() const;
-	Box& GetBox() const;
+	CollisionLayer Layer;	
 
-	SceneObject* m_SceneObject;
 private:
-	std::unique_ptr<Box> m_Box;
-	ColliderLayer m_Layer;
-
-	//Physics* physics;
+	SceneObject* m_SceneObject;
 };

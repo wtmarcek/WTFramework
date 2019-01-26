@@ -1,13 +1,13 @@
 #pragma once
-#include "BoxCollider.h"
+#include <vector>
+class BoxCollider;
 
 class Physics 
 {
-	static Physics* s_Instance;
-
 	Physics() { }
 
 public:
+	static Physics* s_Instance;
 	static Physics* GetInstance()
 	{
 		if (!s_Instance)

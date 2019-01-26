@@ -12,7 +12,7 @@
 #include "Physics/Physics.h"
 
 
-//Physics* Physics::s_Instance = 0;
+Physics* Physics::s_Instance = 0;
 
 int main(void)
 {
@@ -52,7 +52,7 @@ int main(void)
 	{	
 		#pragma region Start			
 		Renderer renderer;
-		//Physics *physics = physics->GetInstance();
+		Physics *physics = physics->GetInstance();
 		#pragma endregion
 		
 

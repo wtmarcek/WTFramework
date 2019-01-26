@@ -1,42 +1,33 @@
+#pragma once
 #include "BoxCollider.h"
+#include "Physics.h"
 
 
-BoxCollider::BoxCollider(float width, float height, ColliderLayer layer, SceneObject* sceneObj)
-	: /*m_SceneObject(sceneObj),*/ m_Layer(layer)
+
+BoxCollider::BoxCollider(SceneObject & sceneObject, CollisionLayer layer)
+	: m_SceneObject(&sceneObject), Layer(layer)
 {
-	m_Box = std::make_unique<Box>(width, height);
-	m_SceneObject = sceneObj;
-
-	//Physics* physics = physics->GetInstance();	
-	//physics->AddCollider(this);
+	Physics *physics = physics->GetInstance();
+	physics->AddCollider(this);
 }
 
 BoxCollider::~BoxCollider()
 {
-	//Physics* physics = physics->GetInstance();
-	//physics->RemoveCollider(this);
+	Physics* physics = physics->GetInstance();
+	physics->RemoveCollider(this);
 }
 
-void BoxCollider::OnUpdate()
+void BoxCollider::Update(float dt)
 {
-	//BoxCollider* other = physics->CheckCollision(*this);
-	//if (other != nullptr)
-	//{
-	//	m_SceneObject.OnCollisionEnter(*other);
-	//}
+	Physics* physics = physics->GetInstance();
+	BoxCollider* other = physics->CheckCollision(this);
+	
+	if (other != nullptr)
+	{
+	}
 }
 
 SceneObject & BoxCollider::GetSceneObject() const
 {
 	return *m_SceneObject;
-}
-
-ColliderLayer BoxCollider::GetLayer() const
-{
-	return m_Layer;
-}
-
-Box & BoxCollider::GetBox() const
-{
-	return *m_Box;
 }
