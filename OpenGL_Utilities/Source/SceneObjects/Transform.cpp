@@ -13,7 +13,7 @@ void Transform::SetPosition(glm::vec3 pos)
 	{
 		m_Position.x = pos.x;
 	}
-	if (pos.y < 100.0f && pos.y < -100.0f)
+	if (pos.y < 100.0f && pos.y > -100.0f)
 	{
 		m_Position.y = pos.y;
 	}

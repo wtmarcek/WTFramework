@@ -104,26 +104,29 @@ int main(void)
 		std::unique_ptr<PlayerObject> playerObj =
 			std::make_unique<PlayerObject>(mainCamera, *texture, *shader, CollisionLayer::Player, window);
 		playerObj->GetTransform().SetScale(glm::vec3(20.0f, 20.0f, 20.0f));
-		playerObj->GetTransform().SetRotation(glm::vec3(0.0f, 50.0f, 0.0f));
+		playerObj->GetTransform().SetRotation(glm::vec3(0.0f, 0.0f, 0.0f));
 		mainScene->AddSceneObject(playerObj.get());
 #pragma endregion
 
+		float timeSinceSceneStarted = 0;
 
 #pragma region Main Loop
 		while (!glfwWindowShouldClose(window))
 		{
-			renderer.Clear();
-			
+			renderer.Clear();			
 			ImGui_ImplGlfwGL3_NewFrame();		
 
-
-			float timeSinceSceneStarted = 0;
 			if (mainScene != nullptr)
 			{
-				float deltaTime = glfwGetTime() - timeSinceSceneStarted;
+				float deltaTime = (float)glfwGetTime() - timeSinceSceneStarted;
+				mainScene->OnTick(deltaTime);				
 				timeSinceSceneStarted = glfwGetTime();
-				mainScene->OnTick(deltaTime);
-				mainScene->OnRender();				
+
+				mainScene->OnRender();	
+
+				std::cout << "dt: " << glfwGetTime() - timeSinceSceneStarted
+					<< "|| started: " << timeSinceSceneStarted
+					<< "glfw: " << glfwGetTime() << std::endl;
 			}
 			//if (currentTest)
 			//{

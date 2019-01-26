@@ -10,21 +10,25 @@ PlayerObject::PlayerObject(const Camera & camera, Texture & texture, Shader & sh
 
 void PlayerObject::Update(float dt)
 {
+	//std::cout << dt << std::endl;
+
+	float speed = 5.0f * dt;
+
 	int state = glfwGetKey(m_Window, GLFW_KEY_W);
 	if(state == GLFW_PRESS)
-		MoveForward(1.0f * dt);
+		MoveForward(10.0f * speed);
 	
 	state = glfwGetKey(m_Window, GLFW_KEY_S);
 	if (state == GLFW_PRESS)
-		MoveForward(-1.0f * dt);
+		MoveForward(-10.0f * speed);
 
 	state = glfwGetKey(m_Window, GLFW_KEY_D);
 	if (state == GLFW_PRESS)
-		MoveRight(1.0f * dt);
+		MoveRight(10.0f * speed);
 
 	state = glfwGetKey(m_Window, GLFW_KEY_A);
 	if (state == GLFW_PRESS)
-		MoveRight(-1.0f * dt);
+		MoveRight(-10.0f * speed);
 }
 
 void PlayerObject::MoveForward(float speed)
