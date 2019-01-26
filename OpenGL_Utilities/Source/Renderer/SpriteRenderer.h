@@ -18,8 +18,6 @@ private:
 	std::unique_ptr<VertexBuffer> m_VertexBuffer;
 	std::unique_ptr<IndexBuffer> m_IndexBuffer;
 	
-	//std::unique_ptr<glm::mat4> m_Model;
-
 	const Transform& m_Transform;
 	const Texture& m_Texture;
 	const Camera& m_Camera;

@@ -1,51 +1,48 @@
-#include <cmath>
-#include <algorithm>
-#include "Physics.h"
-#include "MathUtilities.h"
-
-
-bool CollisionCircleCircle(const Circle & c1, const Circle & c2)
-{
-	float radiusSum = c1.GetRadius() + c2.GetRadius();
-	float centersDist = c1.GetPosition().GetDistance(c2.GetPosition());
-	if (centersDist <= radiusSum)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool CollisionRectRect(const Rectangle & rect1, const Rectangle & rect2)
-{
-	float centersDistX = abs(rect2.GetPosition().x - rect1.GetPosition().x);
-	float centersDistY = abs(rect2.GetPosition().y - rect1.GetPosition().y);
-	if (centersDistX <= rect1.GetSize().x / 2 + rect2.GetSize().x / 2 &&
-		centersDistY <= rect1.GetSize().y / 2 + rect2.GetSize().y / 2)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool CollisionRectCircle(const Rectangle & rect, const Circle & circle)
-{
-	bool isColliding = false;
-	Vec2 rectHalfSize = Vec2(rect.GetSize().x/2.0f, rect.GetSize().y/2.0f);
-	float Ax = Clamp(abs(rect.GetPosition().x - circle.GetPosition().x) / rectHalfSize.x, 0.0f, rectHalfSize.x);
-	float Ay = Clamp(abs(rect.GetPosition().y - circle.GetPosition().y) / rectHalfSize.y, 0.0f, rectHalfSize.y);
-	Vec2 A(Ax, Ay);
-	if (A.GetDistance(circle.GetPosition()) <= circle.GetRadius())
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
+//#pragma once
+//#include "Physics.h"
+//
+////BoxCollider* Physics::CheckCollision(BoxCollider* A)
+////{
+////	for (auto it = m_Colliders.begin(); it != m_Colliders.end(); it++)
+////	{
+////		glm::vec3 A_pos = (*A).GetSceneObject().GetTransform().GetPosition();
+////		Box& A_box = (*A).GetBox();
+////
+////		BoxCollider& B = **it;
+////		glm::vec3 B_pos = B.GetSceneObject().GetTransform().GetPosition();
+////		Box& B_box = B.GetBox();
+////		
+////		if (A_pos != B_pos)
+////		{
+////			bool collisionX =
+////				(A_pos.x + A_box.GetWidth() >= B_pos.x) &&
+////				(B_pos.x + B_box.GetWidth() >= A_pos.z);
+////
+////			bool collisionZ =
+////				(A_pos.z + A_box.GetHeight() >= B_pos.z) &&
+////				(B_pos.z + B_box.GetHeight() >= A_pos.x);
+////
+////			if (collisionX && collisionZ)
+////			{
+////				return &B;
+////			}
+////		}
+////	}
+////	return nullptr;
+////}
+//
+//void Physics::AddCollider(BoxCollider* collider)
+//{
+//	m_Colliders.push_back(collider);
+//}
+//
+//void Physics::RemoveCollider(BoxCollider* collider)
+//{
+//	for (auto it = m_Colliders.begin(); it != m_Colliders.end(); it++)
+//	{
+//		if (*it != collider)
+//		{
+//			m_Colliders.erase(it);
+//		}
+//	}
+//}

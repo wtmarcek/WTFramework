@@ -9,11 +9,18 @@ SceneObject::SceneObject(const Camera& camera, Texture& texture, Shader& shader)
 	m_SpriteRenderer = std::make_unique<SpriteRenderer>(camera, texture, shader, *m_Transform);
 }
 
-
 SceneObject::~SceneObject()
 {
 	s_SceneObjectsCounter--;
 }
+
+void SceneObject::Update(float dt)
+{
+}
+
+//void SceneObject::OnCollisionEnter(BoxCollider & collider)
+//{
+//}
 
 SpriteRenderer& SceneObject::GetRenderer() const
 {

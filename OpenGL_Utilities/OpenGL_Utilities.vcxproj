@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -157,30 +157,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Geometry\Quad.cpp" />
+    <ClCompile Include="Source\Geometry\Box.cpp" />
+    <ClCompile Include="Source\Physics\BoxCollider.cpp" />
+    <ClCompile Include="Source\Physics\Physics.cpp" />
     <ClCompile Include="Source\Renderer\Camera.cpp" />
     <ClCompile Include="Source\SceneObjects\SceneObject.cpp" />
     <ClCompile Include="Source\Game\GameWindow.cpp" />
     <ClCompile Include="Source\Renderer\SpriteRenderer.cpp" />
+    <ClCompile Include="Source\SceneObjects\ThrowingObject.cpp" />
     <ClCompile Include="Source\SceneObjects\Transform.cpp" />
     <ClCompile Include="Source\Scene\Scene.cpp" />
     <ClCompile Include="Source\Shaders\Shader.cpp" />
-    <ClCompile Include="Source\deb.cpp" />
-    <ClCompile Include="Source\Geometry\Circle.cpp" />
-    <ClCompile Include="Source\Physics\CircleCollider.cpp" />
-    <ClCompile Include="Source\Physics\Collider2D.cpp" />
-    <ClCompile Include="Source\Pathfinding\Grid.cpp" />
-    <ClCompile Include="Source\Pathfinding\Node.cpp" />
-    <ClCompile Include="Source\Physics\Physics.cpp" />
-    <ClCompile Include="Source\Geometry\Polygon2D.cpp" />
-    <ClCompile Include="Source\Geometry\Primitive.cpp" />
-    <ClCompile Include="Source\Geometry\Rectangle.cpp" />
-    <ClCompile Include="Source\Physics\RectCollider.cpp" />
     <ClCompile Include="Source\Renderer\IndexBuffer.cpp" />
     <ClCompile Include="Source\Renderer\OpenGLDebug.cpp" />
     <ClCompile Include="Source\Renderer\Renderer.cpp" />
     <ClCompile Include="Source\Source.cpp" />
-    <ClCompile Include="Source\Geometry\Triangle.cpp" />
     <ClCompile Include="Source\Renderer\VertexBuffer.cpp" />
     <ClCompile Include="Source\Renderer\VertexArray.cpp" />
     <ClCompile Include="Source\Tests\Test.cpp" />
@@ -196,10 +187,15 @@
     <ClCompile Include="Source\Tests\TestPerspective.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Game\GameManager.h" />
+    <ClInclude Include="Source\SceneObjects\ThrowingObject.h" />
+    <ClInclude Include="Source\Singleton.h" />
     <ClInclude Include="Source\Animation\SpriteAnimator.h" />
-    <ClInclude Include="Source\Events\Event.h" />
-    <ClInclude Include="Source\Geometry\Quad.h" />
+    <ClInclude Include="Source\Events\Action.h" />
+    <ClInclude Include="Source\Geometry\Box.h" />
     <ClInclude Include="Source\Input\Input.h" />
+    <ClInclude Include="Source\Physics\BoxCollider.h" />
+    <ClInclude Include="Source\Physics\Physics.h" />
     <ClInclude Include="Source\Renderer\Camera.h" />
     <ClInclude Include="Source\SceneObjects\SceneObject.h" />
     <ClInclude Include="Source\Game\GameWindow.h" />
@@ -207,21 +203,10 @@
     <ClInclude Include="Source\SceneObjects\Transform.h" />
     <ClInclude Include="Source\Scene\Scene.h" />
     <ClInclude Include="Source\Shaders\Shader.h" />
-    <ClInclude Include="Source\deb.h" />
-    <ClInclude Include="Source\Geometry\Circle.h" />
-    <ClInclude Include="Source\Physics\CircleCollider.h" />
-    <ClInclude Include="Source\Physics\Collider2D.h" />
-    <ClInclude Include="Source\Pathfinding\Grid.h" />
     <ClInclude Include="Source\MathUtilities\HashUtilities.h" />
     <ClInclude Include="Source\MathUtilities\MathUtilities.h" />
-    <ClInclude Include="Source\Pathfinding\Node.h" />
     <ClInclude Include="Source\Renderer\IndexBuffer.h" />
     <ClInclude Include="Source\Renderer\OpenGLDebug.h" />
-    <ClInclude Include="Source\Physics\Physics.h" />
-    <ClInclude Include="Source\Geometry\Polygon2D.h" />
-    <ClInclude Include="Source\Geometry\Primitive.h" />
-    <ClInclude Include="Source\Geometry\Rectangle.h" />
-    <ClInclude Include="Source\Physics\RectCollider.h" />
     <ClInclude Include="Source\Renderer\Renderer.h" />
     <ClInclude Include="Source\Tests\TestTexture2D.h" />
     <ClInclude Include="Source\Vendor\glm\common.hpp" />
@@ -475,7 +460,6 @@
     <ClInclude Include="Source\wtfpch.h" />
     <ClInclude Include="src\Shaders\ShaderUtilities.h" />
     <ClInclude Include="Source\MathUtilities\Vec2.h" />
-    <ClInclude Include="Source\Geometry\Triangle.h" />
     <ClInclude Include="Source\Renderer\VertexBuffer.h" />
     <ClInclude Include="Source\Renderer\VertexArray.h" />
     <ClInclude Include="Source\Renderer\VertexBufferLayout.h" />

@@ -7,13 +7,17 @@
 #include "Game/GameWindow.h"
 
 #include "Scene/Scene.h"
+#include "SceneObjects\ThrowingObject.h"
 
+#include "Physics/Physics.h"
+
+
+//Physics* Physics::s_Instance = 0;
 
 int main(void)
 {
 
 	#pragma region GLFW initialization
-
 	GLFWwindow* window;
 	
 	/* Initialize the library */
@@ -48,6 +52,7 @@ int main(void)
 	{	
 		#pragma region Start			
 		Renderer renderer;
+		//Physics *physics = physics->GetInstance();
 		#pragma endregion
 		
 
@@ -68,29 +73,43 @@ int main(void)
 		//testMenu->RegisterTest<GameWindow>("Game");
 		#pragma endregion
 
-		
-		std::unique_ptr<Scene> debugScene = std::make_unique<Scene>();
+#pragma region DebugCene
+		std::unique_ptr<Scene> mainScene = std::make_unique<Scene>();
 		
 		std::unique_ptr<Shader> shader = std::make_unique<Shader>("Source/Shaders/BasicShader.shader");
 		std::unique_ptr<Texture> texture = std::make_unique<Texture>("Source/Graphics/Textures/Linux.png");
-		const Camera& mainCamera = *(debugScene->GetCamera());
+		const Camera& mainCamera = *(mainScene->GetCamera());
 
-		std::unique_ptr<SceneObject> debugObject = 
-			std::make_unique<SceneObject>(mainCamera, *texture, *shader);
-		debugObject->GetTransform().SetScale(glm::vec3(100.0f, 100.0f, 100.0f));
-		debugScene->AddSceneObject(debugObject.get());
+		//std::unique_ptr<SceneObject> debugObject = 
+		//	std::make_unique<SceneObject>(mainCamera, *texture, *shader);
+		//debugObject->GetTransform().SetScale(glm::vec3(100.0f, 100.0f, 100.0f));
+		//mainScene->AddSceneObject(debugObject.get());
 
-		#pragma region Main Loop
+		std::unique_ptr<ThrowingObject> throwingObj =
+			std::make_unique<ThrowingObject>(mainCamera, *texture, *shader);
+		throwingObj->GetTransform().SetScale(glm::vec3(20.0f, 20.0f, 20.0f));
+		throwingObj->GetTransform().SetRotation(glm::vec3(0.0f, 50.0f, 0.0f));
+		mainScene->AddSceneObject(throwingObj.get());
+		throwingObj->SetForce(glm::vec3(1.0f, 0.0f, 0.0f));
+#pragma endregion
+
+
+#pragma region Main Loop
 		while (!glfwWindowShouldClose(window))
 		{
 			renderer.Clear();
 			
 			ImGui_ImplGlfwGL3_NewFrame();
 
-			if (debugScene != nullptr)
+			float timeSinceSceneStarted = 0;
+			if (mainScene != nullptr)
 			{
-				debugScene->OnTick();
-				debugScene->OnRender();
+				float deltaTime = glfwGetTime() - timeSinceSceneStarted;
+				timeSinceSceneStarted = glfwGetTime();
+				mainScene->OnTick(deltaTime);
+				mainScene->OnRender();
+
+				//physics->Update(deltaTime);
 			}
 			//if (currentTest)
 			//{
@@ -111,7 +130,7 @@ int main(void)
 			glfwSwapBuffers(window);
 			glfwPollEvents();
 		}
-		#pragma endregion
+#pragma endregion
 	}
 
 	ImGui_ImplGlfwGL3_Shutdown();

@@ -2,9 +2,9 @@
 #include <memory>
 
 #include "Tests/Test.h"
-#include "IndexBuffer.h"
-#include "Shader.h"
-#include "VertexArray.h"
+#include "Renderer/IndexBuffer.h"
+#include "Shaders/Shader.h"
+#include "Renderer/VertexArray.h"
 #include "Textures/Texture.h"
 
 

@@ -39,6 +39,10 @@ const glm::vec3 Transform::GetScale() const
 
 const glm::mat4 Transform::GetTransformationMatrix() const
 {
+	//glm::mat4 translation = glm::translate(glm::mat4(1.0f), m_Position);
+	//return translation;
+
+
 	return glm::scale(
 		glm::rotate(
 		glm::translate(

@@ -2,6 +2,7 @@
 #include "wtfpch.h"
 #include "SceneObjects/SceneObject.h"
 
+static float DELTA_TIME = 0;
 
 class Scene
 {
@@ -9,7 +10,7 @@ public:
 	Scene();
 
 	void OnStart();
-	void OnTick();
+	void OnTick(float dt);
 	void OnRender();
 
 	void AddSceneObject(SceneObject* obj);

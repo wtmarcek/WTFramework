@@ -4,10 +4,10 @@
 
 #include <memory>
 
-#include "VertexBuffer.h"
-#include "IndexBuffer.h"
-#include "Shader.h"
-#include "VertexArray.h"
+#include "Renderer/VertexBuffer.h"
+#include "Renderer/IndexBuffer.h"
+#include "Shaders/Shader.h"
+#include "Renderer/VertexArray.h"
 #include "Textures/Texture.h"
 
 

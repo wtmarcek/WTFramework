@@ -8,7 +8,7 @@
 #include <sstream>
 #include <unordered_map>
 #include <string>
-#include "OpenGLDebug.h"
+#include "Renderer/OpenGLDebug.h"
 #include "glm/gtc/matrix_transform.hpp"
 
 struct ShaderProgramSource

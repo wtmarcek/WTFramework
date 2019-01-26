@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "Tests/Test.h"
-#include "Shader.h"
+#include "Shaders/Shader.h"
 #include "Textures/Texture.h"
 #include "Shaders/Shader.h"
 #include "Renderer/SpriteRenderer.h"
