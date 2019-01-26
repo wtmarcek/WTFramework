@@ -1,7 +1,7 @@
 #pragma once
 #include "BoxCollider.h"
 #include "Physics.h"
-
+#include "SceneObjects\SceneObject.h"
 
 
 BoxCollider::BoxCollider(SceneObject & sceneObject, CollisionLayer layer)
@@ -24,6 +24,7 @@ void BoxCollider::Update(float dt)
 	
 	if (other != nullptr)
 	{
+		m_SceneObject->OnCollisionEnter(*other);
 	}
 }
 

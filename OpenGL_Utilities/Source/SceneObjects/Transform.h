@@ -15,6 +15,8 @@ public:
 	const glm::vec3 GetRotation() const;
 	const glm::vec3 GetScale() const;
 	const glm::mat4 GetTransformationMatrix() const;
+	float GetWidth();
+	float GetHeight();
 
 private:
 	glm::vec3 m_Position;

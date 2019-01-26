@@ -14,6 +14,7 @@ public:
 	virtual void Update(float dt);
 
 	void OnCollisionEnter(BoxCollider& collider);
+	void kutas(BoxCollider& b);
 
 	Transform& GetTransform() const;
 	SpriteRenderer& GetRenderer() const;
