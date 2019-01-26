@@ -1,5 +1,6 @@
 #include "SceneObject.h"
 #include "Physics\BoxCollider.h"
+#include <string>
 enum CollisionLayer;
 
 
@@ -23,7 +24,7 @@ void SceneObject::Update(float dt)
 
 void SceneObject::OnCollisionEnter(BoxCollider & collider)
 {
-	//std::cout << "collision detected: " << std::endl;
+	std::cout << "collision detected: " << std::endl;
 }
 
 SpriteRenderer& SceneObject::GetRenderer() const

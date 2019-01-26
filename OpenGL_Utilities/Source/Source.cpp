@@ -8,17 +8,19 @@
 
 #include "Scene/Scene.h"
 #include "SceneObjects\ThrowingObject.h"
+#include "SceneObjects\PlayerObject.h"
 
 #include "Physics/Physics.h"
 #include "Physics\BoxCollider.h"
 
 
 
+
 Physics* Physics::s_Instance = 0;
+
 
 int main(void)
 {
-
 	#pragma region GLFW initialization
 	GLFWwindow* window;
 	
@@ -80,18 +82,30 @@ int main(void)
 		
 		std::unique_ptr<Shader> shader = std::make_unique<Shader>("Source/Shaders/BasicShader.shader");
 		std::unique_ptr<Texture> texture = std::make_unique<Texture>("Source/Graphics/Textures/Linux.png");
+		std::unique_ptr<Texture> fallus = std::make_unique<Texture>("Source/Graphics/Textures/FallusTemple.png");
 		const Camera& mainCamera = *(mainScene->GetCamera());
 
-		//std::unique_ptr<SceneObject> debugObject = 
-		//	std::make_unique<SceneObject>(mainCamera, *texture, *shader);
-		//debugObject->GetTransform().SetScale(glm::vec3(100.0f, 100.0f, 100.0f));
-		//mainScene->AddSceneObject(debugObject.get());
-		std::unique_ptr<ThrowingObject> throwingObj =
-			std::make_unique<ThrowingObject>(mainCamera, *texture, *shader, CollisionLayer::Damage);
-		throwingObj->GetTransform().SetScale(glm::vec3(20.0f, 20.0f, 20.0f));
-		throwingObj->GetTransform().SetRotation(glm::vec3(0.0f, 50.0f, 0.0f));
-		mainScene->AddSceneObject(throwingObj.get());
-		throwingObj->SetForce(glm::vec3(1.0f, 0.0f, 0.0f));
+		//SCENE_OBJECT
+		std::unique_ptr<SceneObject> debugObject = 
+			std::make_unique<SceneObject>(mainCamera, *fallus, *shader, CollisionLayer::PickUp);
+		debugObject->GetTransform().SetPosition(glm::vec3(-10.0f, -10.0f, -10.0f));
+		debugObject->GetTransform().SetScale(glm::vec3(30.0f, 30.0f, 30.0f));
+		mainScene->AddSceneObject(debugObject.get());
+
+		//THROWING_OBJECT
+		//std::unique_ptr<ThrowingObject> throwingObj =
+		//	std::make_unique<ThrowingObject>(mainCamera, *texture, *shader, CollisionLayer::Damage);
+		//throwingObj->GetTransform().SetScale(glm::vec3(20.0f, 20.0f, 20.0f));
+		//throwingObj->GetTransform().SetRotation(glm::vec3(0.0f, 50.0f, 0.0f));
+		//mainScene->AddSceneObject(throwingObj.get());
+		//throwingObj->SetForce(glm::vec3(1.0f, 0.0f, 0.0f));
+
+		//PLAYER_OBJECT
+		std::unique_ptr<PlayerObject> playerObj =
+			std::make_unique<PlayerObject>(mainCamera, *texture, *shader, CollisionLayer::Player, window);
+		playerObj->GetTransform().SetScale(glm::vec3(20.0f, 20.0f, 20.0f));
+		playerObj->GetTransform().SetRotation(glm::vec3(0.0f, 50.0f, 0.0f));
+		mainScene->AddSceneObject(playerObj.get());
 #pragma endregion
 
 
@@ -100,7 +114,8 @@ int main(void)
 		{
 			renderer.Clear();
 			
-			ImGui_ImplGlfwGL3_NewFrame();
+			ImGui_ImplGlfwGL3_NewFrame();		
+
 
 			float timeSinceSceneStarted = 0;
 			if (mainScene != nullptr)
@@ -108,9 +123,7 @@ int main(void)
 				float deltaTime = glfwGetTime() - timeSinceSceneStarted;
 				timeSinceSceneStarted = glfwGetTime();
 				mainScene->OnTick(deltaTime);
-				mainScene->OnRender();
-
-				//physics->Update(deltaTime);
+				mainScene->OnRender();				
 			}
 			//if (currentTest)
 			//{

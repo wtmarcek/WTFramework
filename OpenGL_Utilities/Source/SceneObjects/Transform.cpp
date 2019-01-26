@@ -9,7 +9,14 @@ Transform::Transform()
 
 void Transform::SetPosition(glm::vec3 pos)
 {
-	m_Position = pos;
+	if (pos.x < 100.0f && pos.x > -100.0f)
+	{
+		m_Position.x = pos.x;
+	}
+	if (pos.y < 100.0f && pos.y < -100.0f)
+	{
+		m_Position.y = pos.y;
+	}
 }
 
 void Transform::SetRotation(glm::vec3 rot)
@@ -47,10 +54,10 @@ const glm::mat4 Transform::GetTransformationMatrix() const
 
 float Transform::GetWidth()
 {
-	return m_Scale.x * 2;
+	return m_Scale.x ;
 }
 
 float Transform::GetHeight()
 {
-	return m_Scale.y * 2;
+	return m_Scale.y;
 }
