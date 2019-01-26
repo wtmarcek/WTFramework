@@ -2,10 +2,11 @@
 
 
 BoxCollider::BoxCollider(float width, float height, ColliderLayer layer, SceneObject* sceneObj)
-	: m_SceneObject(sceneObj), m_Layer(layer)
+	: /*m_SceneObject(sceneObj),*/ m_Layer(layer)
 {
 	m_Box = std::make_unique<Box>(width, height);
-	
+	m_SceneObject = sceneObj;
+
 	//Physics* physics = physics->GetInstance();	
 	//physics->AddCollider(this);
 }
@@ -25,10 +26,10 @@ void BoxCollider::OnUpdate()
 	//}
 }
 
-//SceneObject & BoxCollider::GetSceneObject() const
-//{
-//	return m_SceneObject;
-//}
+SceneObject & BoxCollider::GetSceneObject() const
+{
+	return *m_SceneObject;
+}
 
 ColliderLayer BoxCollider::GetLayer() const
 {

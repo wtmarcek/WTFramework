@@ -19,11 +19,12 @@ public:
 
 	void OnUpdate();
 
-	//SceneObject& GetSceneObject() const;
+	SceneObject& GetSceneObject() const;
 	ColliderLayer GetLayer() const;
 	Box& GetBox() const;
+
+	SceneObject* m_SceneObject;
 private:
-	const SceneObject* m_SceneObject;
 	std::unique_ptr<Box> m_Box;
 	ColliderLayer m_Layer;
 
