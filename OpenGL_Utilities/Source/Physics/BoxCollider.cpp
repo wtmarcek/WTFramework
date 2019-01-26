@@ -1,11 +1,10 @@
 #include "BoxCollider.h"
 
 
-BoxCollider::BoxCollider(float width, float height, ColliderLayer layer, SceneObject& sceneObj)
-	: m_SceneObject(sceneObj)
+BoxCollider::BoxCollider(float width, float height, ColliderLayer layer, SceneObject* sceneObj)
+	: m_SceneObject(sceneObj), m_Layer(layer)
 {
 	m_Box = std::make_unique<Box>(width, height);
-	m_Layer = layer;
 	
 	//Physics* physics = physics->GetInstance();	
 	//physics->AddCollider(this);

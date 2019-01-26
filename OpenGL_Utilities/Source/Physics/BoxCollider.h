@@ -14,7 +14,7 @@ enum ColliderLayer
 class BoxCollider
 {
 public:
-	BoxCollider(float width, float height, ColliderLayer layer, SceneObject& sceneObj);
+	BoxCollider(float width, float height, ColliderLayer layer, SceneObject* sceneObj);
 	~BoxCollider();
 
 	void OnUpdate();
@@ -23,7 +23,7 @@ public:
 	ColliderLayer GetLayer() const;
 	Box& GetBox() const;
 private:
-	const SceneObject& m_SceneObject;
+	const SceneObject* m_SceneObject;
 	std::unique_ptr<Box> m_Box;
 	ColliderLayer m_Layer;
 
