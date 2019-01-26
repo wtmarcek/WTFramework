@@ -4,9 +4,9 @@ class SceneObject;
 
 enum CollisionLayer
 {
-	Player,
-	PickUp,
-	Damage
+	Player = 0,
+	PickUp = 1,
+	Damage = 2
 };
 
 class BoxCollider

@@ -1,11 +1,14 @@
 #include "SceneObject.h"
+#include "Physics\BoxCollider.h"
+enum CollisionLayer;
 
 
-SceneObject::SceneObject(const Camera& camera, Texture& texture, Shader& shader)
+SceneObject::SceneObject(const Camera& camera, Texture& texture, Shader& shader, CollisionLayer layer)
 {
 	m_ID = s_SceneObjectsCounter++;	
 	m_Transform = std::make_unique<Transform>();
 	m_SpriteRenderer = std::make_unique<SpriteRenderer>(camera, texture, shader, *m_Transform);
+	m_BoxCollider = std::make_unique<BoxCollider>(*this, layer);
 }
 
 SceneObject::~SceneObject()
@@ -15,16 +18,12 @@ SceneObject::~SceneObject()
 
 void SceneObject::Update(float dt)
 {
+	m_BoxCollider->Update(dt);
 }
 
 void SceneObject::OnCollisionEnter(BoxCollider & collider)
 {
 	//std::cout << "collision detected: " << std::endl;
-}
-
-void SceneObject::kutas(BoxCollider & b)
-{
-
 }
 
 SpriteRenderer& SceneObject::GetRenderer() const

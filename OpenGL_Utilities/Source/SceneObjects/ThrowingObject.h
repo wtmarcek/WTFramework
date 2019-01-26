@@ -2,12 +2,13 @@
 
 #include "SceneObject.h"
 #include "Scene\Scene.h"
+enum CollisionLayer;
 
 
 class ThrowingObject : public SceneObject
 {
 public:
-	ThrowingObject(const Camera& camera, Texture& texture, Shader& shader);
+	ThrowingObject(const Camera& camera, Texture& texture, Shader& shader, CollisionLayer layer);
 	~ThrowingObject();
 
 	void Update(float dt) override;

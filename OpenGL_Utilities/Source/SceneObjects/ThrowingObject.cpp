@@ -1,7 +1,7 @@
 #include "ThrowingObject.h"
 
-ThrowingObject::ThrowingObject(const Camera & camera, Texture & texture, Shader & shader)
-	: SceneObject(camera, texture, shader)
+ThrowingObject::ThrowingObject(const Camera & camera, Texture & texture, Shader & shader, CollisionLayer layer)
+	: SceneObject(camera, texture, shader, layer)
 {
 	m_Force = glm::vec3(0.0f);
 }

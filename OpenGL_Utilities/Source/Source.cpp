@@ -10,6 +10,8 @@
 #include "SceneObjects\ThrowingObject.h"
 
 #include "Physics/Physics.h"
+#include "Physics\BoxCollider.h"
+
 
 
 Physics* Physics::s_Instance = 0;
@@ -84,9 +86,8 @@ int main(void)
 		//	std::make_unique<SceneObject>(mainCamera, *texture, *shader);
 		//debugObject->GetTransform().SetScale(glm::vec3(100.0f, 100.0f, 100.0f));
 		//mainScene->AddSceneObject(debugObject.get());
-
 		std::unique_ptr<ThrowingObject> throwingObj =
-			std::make_unique<ThrowingObject>(mainCamera, *texture, *shader);
+			std::make_unique<ThrowingObject>(mainCamera, *texture, *shader, CollisionLayer::Damage);
 		throwingObj->GetTransform().SetScale(glm::vec3(20.0f, 20.0f, 20.0f));
 		throwingObj->GetTransform().SetRotation(glm::vec3(0.0f, 50.0f, 0.0f));
 		mainScene->AddSceneObject(throwingObj.get());
